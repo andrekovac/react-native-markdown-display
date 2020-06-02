@@ -284,10 +284,15 @@ const renderRules = {
       indicator: true,
       key: node.key,
       style: styles._VIEW_SAFE_image,
-      source: {
-        uri: show === true ? src : `${defaultImageHandler}${src}`,
-      },
     };
+
+    if (src.toLowerCase().startsWith('LOCALIMAGE://')) {
+      imageProps.source = src.replace('LOCALIMAGE://', '');
+    } else {
+      imageProps.source = {
+        uri: show === true ? src : `${defaultImageHandler}${src}`,
+      };
+    }
 
     if (alt) {
       imageProps.accessible = true;

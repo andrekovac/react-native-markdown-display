@@ -139,6 +139,7 @@ const Markdown = React.memo(
     maxTopLevelChildren = null,
     topLevelMaxExceededItem = <Text key="dotdotdot">...</Text>,
     allowedImageHandlers = [
+      'LOCALIMAGE://',
       'data:image/png;base64',
       'data:image/gif;base64',
       'data:image/jpeg;base64',
